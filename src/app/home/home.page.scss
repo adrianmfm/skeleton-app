@@ -1,0 +1,68 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+/* Define la animación */
+@keyframes slideAndFade {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(50%);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Aplica la animación al título */
+.animacion-titulo {
+  animation: slideAndFade 2.5s infinite;
+}
+
+/* Define la animación */
+@keyframes slideLeftToRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Aplica la animación a los ion-input con la clase animacion-input */
+ion-input.animacion-input {
+  animation: slideLeftToRight 4s forwards; /* forwards mantiene el estado final de la animación */
+}
+
+.animacion-elemento {
+  animation: desplazamiento 2s infinite;
+}
+

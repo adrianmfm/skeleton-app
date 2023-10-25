@@ -1,0 +1,70 @@
+<!-- Comienza el Header -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-padding-top ion-text-center" class="animacion-titulo">
+      <ion-label>
+        Bienvenido
+        <p *ngIf="usuario">{{usuario}}</p>
+      </ion-label>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding-horizontal">
+  <b class="ion-text-center">
+    <h4>Información Adicional</h4>
+  </b>
+  <ion-item class="ion-padding-horizontal" >
+    <ion-label position="stacked">Nombre</ion-label>
+    <ion-input label=""  type="text" [(ngModel)]="data.nombre"></ion-input>
+  </ion-item>
+
+  <ion-item class="ion-padding-horizontal" >
+    <ion-label position="stacked">Apellido</ion-label>
+    <ion-input label="" type="text" [(ngModel)]="data.apellido"></ion-input>
+  </ion-item>
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked" class="ion-padding-bottom">Educación</ion-label>
+    <ion-select placeholder="Seleccione nivel" [(ngModel)]="data.education">
+      <ion-select-option *ngFor="let niv of niveles" [value]="niv.id">{{niv.nivel}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked" class="ion-padding-bottom">Fecha Nacimiento</ion-label>
+    <mat-form-field appearance="outline">
+      <input matInput [matDatepicker]="datePicker" [(ngModel)]="data.nacimiento" name="nacimiento">
+      <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker></mat-datepicker>
+    </mat-form-field>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-button shape="block" (click)="startShakeAnimation()">
+          Limpiar
+        </ion-button>
+      </ion-col>
+      <ion-col col-6>
+        <ion-button shape="block" (click)="mostrar()">
+          Mostrar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-segment value="default">
+    <ion-segment-button value="default" (click)="navegar()">
+      <ion-label>Experiencia laboral</ion-label>
+      <ion-icon name="people"></ion-icon>
+    </ion-segment-button >
+    <ion-segment-button value="segment">
+      <ion-label>Certificaciones</ion-label>
+      <ion-icon name="clipboard"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="third">
+      <ion-label>Mis datos</ion-label>
+      <ion-icon name="person"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+  
+</ion-content>
